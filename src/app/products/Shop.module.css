@@ -1,0 +1,243 @@
+.shopHeader {
+  text-align: center;
+  padding: 5rem 0 3rem 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.shopTitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shopSubtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  color: var(--foreground);
+  opacity: 0.65;
+  line-height: 1.6;
+}
+
+/* Controls Container (Search + Sort + Filter) */
+.controlsSection {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.searchSortBar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .searchSortBar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1.1rem 1.5rem 1.1rem 3.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(24, 24, 27, 0.6);
+  color: var(--foreground);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+.searchInput:focus {
+  background: rgba(24, 24, 27, 0.9);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12), 0 4px 24px rgba(0,0,0,0.2);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1.35rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #3b82f6;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.clearButton {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.08);
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clearButton:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.sortSelect {
+  padding: 1.1rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(24, 24, 27, 0.6);
+  color: var(--foreground);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s;
+  min-width: 200px;
+}
+
+.sortSelect:hover {
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* Filter Chips Rows */
+.filterContainer {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding-bottom: 1.5rem;
+}
+
+.filterChip {
+  padding: 0.6rem 1.4rem;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--foreground);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filterChip:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-1px);
+}
+
+.activeChip {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+}
+
+/* Advanced Products Grid */
+.shopGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem 2rem;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Sophisticated Empty Grid Card */
+.emptyContainer {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(145deg, rgba(24, 24, 27, 0.6) 0%, rgba(9, 9, 11, 0.8) 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  max-width: 550px;
+  margin: 0 auto;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.emptyIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 8px 16px rgba(59,130,246,0.3));
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.emptyText {
+  color: var(--foreground);
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.resetButton {
+  padding: 0.8rem 1.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--foreground);
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resetButton:hover {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

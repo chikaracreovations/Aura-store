@@ -1,0 +1,57 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  position: sticky;
+  top: 0;
+  background: rgba(9, 9, 11, 0.75);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  z-index: 99999;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.85;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2.2rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.navLinkItem {
+  text-decoration: none;
+  color: var(--foreground);
+  opacity: 0.75;
+  transition: all 0.2s;
+  letter-spacing: -0.01em;
+}
+
+.navLinkItem:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 1.2rem 1.5rem;
+  }
+  .navLinks:first-of-type {
+    display: none; /* Hide middle navigation links on mobile for symmetry */
+  }
+}

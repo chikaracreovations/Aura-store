@@ -1,0 +1,107 @@
+.collectionsHeader {
+  text-align: center;
+  padding: 5rem 0 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+  padding: 0.4rem 1.1rem;
+  border-radius: 99px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  margin-bottom: 1.2rem;
+}
+
+.pageTitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pageSubtitle {
+  font-size: 1.1rem;
+  max-width: 600px;
+  opacity: 0.65;
+  line-height: 1.6;
+}
+
+.collectionSection {
+  margin-bottom: 6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 3.5rem;
+}
+
+.collectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+}
+
+.categoryTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.categoryCount {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.viewAllLink {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #3b82f6;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.viewAllLink:hover {
+  opacity: 0.8;
+  transform: translateX(2px);
+}
+
+.collectionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem 2rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(145deg, rgba(24, 24, 27, 0.6) 0%, rgba(9, 9, 11, 0.8) 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  max-width: 550px;
+  margin: 4rem auto;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}

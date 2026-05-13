@@ -1,0 +1,205 @@
+.aboutContainer {
+  min-height: 90vh;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+/* 🌟 Hero Cinematic Intro Section */
+.heroSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media (max-width: 968px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  margin-bottom: 1.2rem;
+  background: rgba(59, 130, 246, 0.08);
+  padding: 0.4rem 1.2rem;
+  border-radius: 99px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  display: inline-block;
+}
+
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.75) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+}
+
+.heroText {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.heroImageContainer {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  aspect-ratio: 4 / 5;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.heroImageContainer:hover .heroImage {
+  transform: scale(1.05);
+}
+
+/* 🎯 Core Values Pillars Section */
+.pillarsSection {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.pillarsTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.gridPillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+@media (max-width: 850px) {
+  .gridPillars {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarCard {
+  padding: 3.5rem 2.5rem;
+  background: linear-gradient(145deg, rgba(24, 24, 27, 0.4) 0%, rgba(9, 9, 11, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.pillarCard:hover {
+  transform: translateY(-8px);
+  background: linear-gradient(145deg, rgba(30, 30, 35, 0.5) 0%, rgba(12, 12, 15, 0.7) 100%);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.pillarIcon {
+  font-size: 2rem;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.pillarName {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.pillarDesc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  opacity: 0.6;
+}
+
+/* 🚀 Master Final Call to Action */
+.ctaBanner {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(9, 9, 11, 0.8) 100%), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1000') no-repeat center center;
+  background-size: cover;
+  border-radius: 32px;
+  padding: 6rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.ctaText {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1.1rem 2.5rem;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+}
+
+.ctaButton:hover {
+  transform: scale(1.04);
+  box-shadow: 0 15px 35px rgba(255,255,255,0.2);
+}

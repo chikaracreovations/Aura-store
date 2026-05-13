@@ -1,0 +1,524 @@
+.productPage {
+  max-width: 1280px;
+  margin: 5rem auto 8rem auto;
+  padding: 0 1.5rem;
+}
+
+.topSection {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 5rem;
+  margin-bottom: 7rem;
+  align-items: flex-start;
+}
+
+.leftColumn {
+  position: sticky;
+  top: 120px;
+}
+
+@media (max-width: 992px) {
+  .topSection {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .leftColumn {
+    position: relative;
+    top: 0;
+  }
+}
+
+/* 🖼️ Product Gallery Master Framing */
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mainImageWrapper {
+  width: 100%;
+  aspect-ratio: 4 / 5; 
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mainImageWrapper:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mainImageWrapper:hover .mainImage {
+  transform: scale(1.03);
+}
+
+.thumbnailsContainer {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem;
+  scrollbar-width: none;
+}
+
+.thumbnailsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnailWrapper {
+  width: 85px;
+  height: 105px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.thumbnailWrapper:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.activeThumbnail {
+  border: 2px solid #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s;
+}
+
+.thumbnailWrapper:hover .thumbnail {
+  opacity: 0.9;
+}
+
+/* 🏷️ Product Identity Typography */
+.productTitle {
+  font-size: 3rem;
+  line-height: 1.15;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.75) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.productCategory {
+  color: #3b82f6;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-weight: 800;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  background: rgba(59, 130, 246, 0.08);
+  padding: 0.4rem 1.1rem;
+  border-radius: 99px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.ratingOverview {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ratingStars {
+  color: #fbbf24; /* Luxury Gold */
+  letter-spacing: 0.05em;
+  display: flex;
+  gap: 0.1rem;
+}
+
+.price {
+  font-size: 2.75rem;
+  font-weight: 900;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.stockStatus {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.85rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.inStock {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.outOfStock {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* 💳 Exclusive Obsidian Buy Box */
+.buyBox {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+  margin-bottom: 3.5rem;
+}
+
+.aboutSection {
+  margin-top: 2.5rem;
+}
+
+.aboutSection h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.description {
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.featuresList li {
+  position: relative;
+  padding-left: 1.75rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+.featuresList li::before {
+  content: "✦";
+  position: absolute;
+  left: 0.2rem;
+  color: #3b82f6;
+  font-size: 0.8rem;
+  top: 0.1rem;
+}
+
+/* 💬 Modern Reviews Grid Dashboard */
+.reviewsSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 5rem;
+  margin-top: 5rem;
+}
+
+.reviewsSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.reviewsSidebar {
+  position: sticky;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  .reviewsSidebar {
+    position: relative;
+    top: 0;
+  }
+}
+
+.ratingBreakdown {
+  margin-bottom: 0;
+  padding: 2.5rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.ratingSummaryHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.bigRating {
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.5) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.04em;
+}
+
+.ratingSubInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.breakdownRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.breakdownLabel {
+  width: 55px;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.breakdownBarContainer {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 99px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.breakdownBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #eab308 0%, #fbbf24 100%);
+  border-radius: 99px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+}
+
+.breakdownPercentage {
+  width: 45px;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.8);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ✍️ Premium Community Reviews Stack */
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.reviewItem {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reviewItem:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.reviewerName {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  background: rgba(59, 130, 246, 0.08);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.reviewMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  margin-top: 0.35rem;
+  font-weight: 600;
+}
+
+.verifiedBadge {
+  color: #10b981;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.verifiedBadge::before {
+  content: "✓";
+  font-weight: 900;
+}
+
+.reviewDate {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.reviewComment {
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.reviewImageContainer {
+  margin: 1rem 0 1.5rem 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 0.4rem;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.reviewImage {
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+  display: block;
+}
+
+.reviewImage:hover {
+  transform: scale(1.02);
+}
+
+.reviewFooter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 1.25rem;
+}
+
+.helpfulBtn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.5rem 1.2rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.25s;
+}
+
+.helpfulBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.reportBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.4rem 0.5rem;
+  transition: all 0.2s;
+}
+
+.reportBtn:hover {
+  color: #ef4444;
+}
+
+.reviewForm {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}

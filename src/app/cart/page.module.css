@@ -1,0 +1,363 @@
+.cartContainer {
+  max-width: 1200px;
+  margin: 5rem auto 8rem auto;
+  padding: 0 1.5rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.08);
+  padding: 0.4rem 1.1rem;
+  border-radius: 99px;
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+.cartTitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 3rem;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cartContent {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .cartContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 🌌 Glassmorphic Luxury Item Grid Card */
+.cartItem {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  background: linear-gradient(145deg, rgba(24, 24, 27, 0.5) 0%, rgba(9, 9, 11, 0.7) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cartItem:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .cartItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+.itemImageWrapper {
+  width: 95px;
+  height: 125px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255,255,255,0.02);
+  display: block;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.itemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.cartItem:hover .itemImage {
+  transform: scale(1.06);
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.itemName {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.itemName:hover {
+  color: #3b82f6;
+}
+
+.itemStockStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #10b981; /* Emerald Green */
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.stockDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.itemUnitPrice {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  font-weight: 600;
+}
+
+/* Column Layout for Right-Side pricing controls */
+.itemRightSection {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+@media (max-width: 640px) {
+  .itemRightSection {
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1.2rem;
+    gap: 1rem;
+  }
+}
+
+.quantityControlsGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.quantitySelectorCapsule {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 99px;
+  padding: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.qtyModifierBtn {
+  background: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.qtyModifierBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: scale(1.08);
+}
+
+.qtyDisplay {
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 0 0.8rem;
+  min-width: 26px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.modernRemoveBtn {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  padding: 0.2rem 0.5rem;
+}
+
+.modernRemoveBtn:hover {
+  color: #ef4444;
+}
+
+.itemTotalCost {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  min-width: 110px;
+  text-align: right;
+}
+
+/* 💎 THE ORDER SUMMARY BOX OVERHAUL */
+.cartSummary {
+  background: linear-gradient(145deg, rgba(30, 30, 35, 0.6) 0%, rgba(15, 15, 20, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 2.5rem;
+  position: sticky;
+  top: 100px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.summaryTitle {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 1.2rem;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.summaryRow span:last-child {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.summaryTotal {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 2rem;
+}
+
+.totalLabel {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff !important;
+}
+
+.totalVal {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffffff !important;
+  letter-spacing: -0.03em;
+  text-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.checkoutBtn {
+  width: 100%;
+  padding: 1.1rem;
+  background: #ffffff;
+  color: #000000;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.checkoutBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.18);
+}
+
+/* Safe Badge Tags below Summary Box */
+.safeBadgeTag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.safeLockIcon {
+  color: #10b981;
+}
+
+/* Empty State */
+.emptyCart {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(145deg, rgba(24, 24, 27, 0.6) 0%, rgba(9, 9, 11, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 28px;
+  max-width: 600px;
+  margin: 2rem auto;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+.emptyCartIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.emptyCart h2 {
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}

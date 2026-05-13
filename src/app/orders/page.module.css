@@ -1,0 +1,364 @@
+.container {
+  max-width: 1000px;
+  margin: 3rem auto 6rem auto;
+  padding: 0 1.5rem;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* Order Card Block */
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.orderCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.orderCard:hover {
+  box-shadow: 0 8px 35px rgba(0, 0, 0, 0.04);
+}
+
+/* Order Header Row */
+.orderHeader {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  background: var(--secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  font-size: 0.85rem;
+}
+
+.headerLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 0.7rem;
+  margin-bottom: 0.25rem;
+  opacity: 0.65;
+  color: var(--foreground);
+}
+
+.headerValue {
+  font-weight: 800;
+  color: var(--foreground);
+  font-size: 0.95rem;
+}
+
+/* Order Inner Layout */
+.orderContent {
+  padding: 2rem;
+}
+
+/* Delivery Indicator Banner */
+.deliveryStatusBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.deliveryTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  letter-spacing: -0.015em;
+}
+
+.statusBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.4rem 0.9rem;
+  border-radius: 30px;
+  letter-spacing: 0.06em;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+}
+
+.statusPENDING {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.statusPROCESSING {
+  background: rgba(124, 58, 237, 0.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.statusDELIVERED {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.statusRETURN_REQUESTED {
+  background: rgba(249, 115, 22, 0.1);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.statusSHIPPED {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.statusCANCELLED {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* Main Items List & Actions Container */
+.bodyGrid {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .bodyGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.itemRow {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.itemThumb {
+  width: 80px;
+  height: 100px;
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.thumbPlaceholder {
+  width: 80px;
+  height: 100px;
+  border-radius: 12px;
+  background: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--foreground);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.itemInfo h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.itemMeta {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  font-weight: 500;
+}
+
+.buyAgainBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 0.65rem;
+  transition: color 0.2s;
+}
+
+.buyAgainBtn:hover {
+  color: var(--accent-hover);
+}
+
+/* Right Column Contextual Sidebar Buttons */
+.actionSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.actionBtn {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  background: var(--secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.actionBtnPrimary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.actionBtnPrimary:hover {
+  opacity: 0.9;
+  background: var(--primary);
+}
+
+.actionBtnWarn {
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.25);
+  background: rgba(239, 68, 68, 0.03);
+}
+
+.actionBtnWarn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+}
+
+/* Tracking Drawer Animation Area */
+.trackingSection {
+  background: var(--secondary);
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.trackingTimeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 1rem;
+}
+
+.trackingTimeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 7px;
+  width: 2px;
+  background: var(--border);
+}
+
+.timelineEvent {
+  position: relative;
+  padding-bottom: 1.25rem;
+}
+
+.timelineEvent:last-child {
+  padding-bottom: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -29px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #d1d5db;
+}
+
+.timelineDotActive {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+}
+
+.timelineDate {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+  margin-bottom: 0.15rem;
+}
+
+.timelineDesc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* Empty State Styling */
+.emptyContainer {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.02);
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.emptyDesc {
+  opacity: 0.6;
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
