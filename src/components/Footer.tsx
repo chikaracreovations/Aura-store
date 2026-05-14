@@ -42,7 +42,6 @@ export default function Footer() {
               <li><Link href="/" className={styles.link}>Homepage Matrix</Link></li>
               <li><Link href="/products" className={styles.link}>Catalog Grid</Link></li>
               <li><Link href="/collections" className={styles.link}>Visual Collections</Link></li>
-              <li><Link href="/admin" className={styles.link}>Operator Admin</Link></li>
             </ul>
           </div>
 

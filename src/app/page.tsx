@@ -156,8 +156,7 @@ export default async function Home() {
           <div style={{ textAlign: "center", padding: "5rem 2rem", background: "var(--card)", border: "1px solid var(--border)", borderRadius: "24px" }}>
             <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🛍️</div>
             <h3 style={{ fontSize: "1.5rem", fontWeight: 800, marginBottom: "0.5rem" }}>No products listed yet</h3>
-            <p style={{ opacity: 0.7, marginBottom: "2rem" }}>Initialize your collection database in the Admin console to begin selling.</p>
-            <Link href="/admin" className="btn btn-primary" style={{ padding: "0.9rem 2rem" }}>Launch Admin Dashboard</Link>
+            <p style={{ opacity: 0.7 }}>Our collection is currently undergoing curation. Check back shortly.</p>
           </div>
         ) : (
           <div className={styles.grid}>
