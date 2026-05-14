@@ -60,8 +60,8 @@ function getHTMLWrapper(body: string) {
         
         <!-- Institutional Footer -->
         <div style="padding: 25px; background-color: #f9fafb; text-align: center; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
-          <p style="margin: 0 0 8px 0;">&copy; ${new Date().getFullYear()} Aura Frontline Labs. All physical assets protected.</p>
-          <p style="margin: 0;">This is a secure transaction transmission. Do not forward sensitive parameters.</p>
+          <p style="margin: 0 0 8px 0;">&copy; ${new Date().getFullYear()} Aura Store. All rights reserved.</p>
+          <p style="margin: 0;">This is an automated message. Please do not reply directly to this email.</p>
         </div>
       </div>
     </div>
@@ -96,13 +96,13 @@ export async function dispatchOrderNotifications(
     const emailHtml = getHTMLWrapper(`
       <h2 style="margin-top: 0; color: #111827; font-size: 22px; font-weight: 800;">Order Confirmed! ⚡</h2>
       <p>Hi ${user.name || 'there'},</p>
-      <p>Fantastic choices! Your order <strong>#${orderHash}</strong> has been committed to our node and successfully authorized. Our logistics matrix is preparing your units for collection.</p>
+      <p>Thank you for shopping with Aura. Your order <strong>#${orderHash}</strong> has been successfully placed and is currently being processed. We will notify you once it ships.</p>
       
       <!-- Cart Breakdown Table -->
       <table style="width: 100%; border-collapse: collapse; margin: 25px 0;">
         <thead>
           <tr style="border-bottom: 2px solid #e5e7eb; text-align: left; color: #6b7280; font-size: 12px; text-transform: uppercase;">
-            <th style="padding-bottom: 8px;">Consolidated Units</th>
+            <th style="padding-bottom: 8px;">Item</th>
             <th style="padding-bottom: 8px; text-align: center;">Qty</th>
             <th style="padding-bottom: 8px; text-align: right;">Value</th>
           </tr>
@@ -110,7 +110,7 @@ export async function dispatchOrderNotifications(
         <tbody>
           ${itemRows}
           <tr>
-            <td colspan="2" style="padding-top: 20px; font-weight: 700; color: #111827;">AGGREGATE TOTAL:</td>
+            <td colspan="2" style="padding-top: 20px; font-weight: 700; color: #111827;">TOTAL:</td>
             <td style="padding-top: 20px; text-align: right; font-size: 18px; font-weight: 900; color: #3b82f6;">₹${formattedTotal}</td>
           </tr>
         </tbody>
@@ -118,14 +118,14 @@ export async function dispatchOrderNotifications(
       
       <!-- Address Coordinates Box -->
       <div style="background-color: #f8fafc; border-radius: 10px; padding: 18px; border: 1px solid #e2e8f0; font-size: 13px; margin-bottom: 30px;">
-        <div style="font-weight: 700; text-transform: uppercase; font-size: 11px; color: #64748b; margin-bottom: 5px;">Logistics Delivery Coordinates:</div>
-        <div style="font-weight: 600; color: #334155; margin-bottom: 8px;">📍 ${order.shippingAddress || "Standard Ground Hub Distribution"}</div>
-        <div style="font-weight: 700; text-transform: uppercase; font-size: 11px; color: #64748b; margin-bottom: 5px;">Registered Handset:</div>
+        <div style="font-weight: 700; text-transform: uppercase; font-size: 11px; color: #64748b; margin-bottom: 5px;">Shipping Address:</div>
+        <div style="font-weight: 600; color: #334155; margin-bottom: 8px;">📍 ${order.shippingAddress || "Standard Delivery"}</div>
+        <div style="font-weight: 700; text-transform: uppercase; font-size: 11px; color: #64748b; margin-bottom: 5px;">Phone Number:</div>
         <div style="font-family: monospace; font-weight: 700; color: #334155;">📞 ${order.phone || "Not Provided"}</div>
       </div>
       
       <div style="text-align: center;">
-        <a href="http://localhost:3000/orders" style="display: inline-block; padding: 14px 28px; background-color: #0f172a; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px;">📦 Live Package Tracking</a>
+        <a href="http://localhost:3000/orders" style="display: inline-block; padding: 14px 28px; background-color: #0f172a; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px;">View Order Status</a>
       </div>
     `);
 
@@ -169,32 +169,32 @@ export async function dispatchStatusUpdateNotification(
       case "PROCESSING":
         statusColor = "#8b5cf6"; // Violet
         statusIcon = "⚙️";
-        messageBody = "Your consignment is currently undergoing visual inspections and serialization validation by our fulfillment team.";
+        messageBody = "Your order is currently being processed and prepared for dispatch.";
         break;
       case "SHIPPED":
         statusColor = "#2563eb"; // Blue
         statusIcon = "🚚";
-        messageBody = "Exhilarating news! Your consignment has departed the main facility and is currently in the hands of our logistics carrier.";
+        messageBody = "Great news! Your order has been shipped and is on its way to you.";
         break;
       case "DELIVERED":
         statusColor = "#10b981"; // Emerald
         statusIcon = "✅";
-        messageBody = "Consignment delivered successfully! The shipment agent confirmed delivery directly to the physical address coordinates.";
+        messageBody = "Your order has been successfully delivered. We hope you love your new items!";
         break;
       case "CANCELLED":
         statusColor = "#ef4444"; // Red
         statusIcon = "🛑";
-        messageBody = "This order transaction has been successfully CANCELLED. Any captured authorization funds will be credited within standard cycles.";
+        messageBody = "Your order has been cancelled. Any payments made will be refunded to your original payment method.";
         break;
       default:
-        messageBody = "Your parcel is progressing cleanly through our internal fulfillment networks.";
+        messageBody = "Your order status has been updated.";
     }
 
     const emailHtml = getHTMLWrapper(`
       <h2 style="margin-top: 0; color: #111827; font-size: 22px; font-weight: 800;">Order Status Update 📦</h2>
       <p>Hi ${user.name || 'there'},</p>
       
-      <p>We've registered a progression in your Order <strong>#${orderHash}</strong> tracking metrics.</p>
+      <p>We wanted to let you know that there is an update regarding your Order <strong>#${orderHash}</strong>.</p>
       
       <!-- High Contrast Lifecycle Indicator -->
       <div style="background-color: #f8fafc; border-radius: 12px; padding: 25px; border-left: 6px solid ${statusColor}; text-align: center; margin: 30px 0;">
@@ -208,7 +208,7 @@ export async function dispatchStatusUpdateNotification(
       </p>
       
       <div style="text-align: center;">
-        <a href="http://localhost:3000/orders" style="display: inline-block; padding: 14px 28px; background-color: #0f172a; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px;">🗺️ Inspect Logistics Chain</a>
+        <a href="http://localhost:3000/orders" style="display: inline-block; padding: 14px 28px; background-color: #0f172a; color: #ffffff; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 14px;">View Order Details</a>
       </div>
     `);
 
