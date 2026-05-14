@@ -30,34 +30,45 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error("Invalid credentials");
+        try {
+          if (!credentials?.email || !credentials?.password) {
+            console.log("❌ LOGIN FAIL: Missing credentials");
+            throw new Error("Invalid credentials");
+          }
+
+          const email = credentials.email.toLowerCase().trim();
+          console.log(`🔍 AUTH ATTEMPT: ${email}`);
+
+          const user = await prisma.user.findUnique({
+            where: { email },
+          });
+
+          if (!user || !user?.password) {
+            console.log(`❌ LOGIN FAIL: User not found -> ${email}`);
+            throw new Error("Invalid credentials");
+          }
+
+          const isCorrectPassword = await bcrypt.compare(
+            credentials.password,
+            user.password
+          );
+
+          if (!isCorrectPassword) {
+            console.log(`❌ LOGIN FAIL: Password mismatch -> ${email}`);
+            throw new Error("Invalid credentials");
+          }
+
+          console.log(`✅ LOGIN SUCCESS: ${email} (Role: ${user.role})`);
+          return {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+          };
+        } catch (error) {
+          console.error("🔥 NEXTAUTH AUTH ERROR:", error);
+          throw error;
         }
-
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
-        });
-
-        if (!user || !user?.password) {
-          throw new Error("Invalid credentials");
-        }
-
-        const isCorrectPassword = await bcrypt.compare(
-          credentials.password,
-          user.password
-        );
-
-        if (!isCorrectPassword) {
-          throw new Error("Invalid credentials");
-        }
-
-        // Return user with explicit ROLE parameter
-        return {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          role: user.role,
-        };
       },
     }),
   ],
