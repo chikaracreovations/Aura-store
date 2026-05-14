@@ -26,46 +26,51 @@ export default function Footer() {
           <div className={styles.brandCol}>
             <h2 className={styles.logo}>AURA<span>.</span></h2>
             <p className={styles.tagline}>
-              Curating premium physical masterpieces and sophisticated tech consumables for modern discerning collectors across the globe.
+              Curating premium essentials for the modern discerning collector.
             </p>
+            <div style={{ fontSize: '0.8rem', opacity: 0.6, marginTop: '1rem', lineHeight: '1.6' }}>
+              <strong>Chikara Renovations</strong><br />
+              Sector 58, Gurugram, Haryana, India<br />
+              Email: chikara.ansh15@gmail.com
+            </div>
             <div className={styles.socials}>
               <a href="#" aria-label="Instagram" className={styles.socialIcon}>📷</a>
               <a href="#" aria-label="Twitter" className={styles.socialIcon}>🐦</a>
-              <a href="#" aria-label="LinkedIn" className={styles.socialIcon}>💼</a>
             </div>
           </div>
 
           {/* B. Navigator Matrices */}
           <div>
-            <h3 className={styles.colTitle}>Explore Portal</h3>
+            <h3 className={styles.colTitle}>Shop</h3>
             <ul className={styles.linkList}>
-              <li><Link href="/" className={styles.link}>Homepage Matrix</Link></li>
-              <li><Link href="/products" className={styles.link}>Catalog Grid</Link></li>
-              <li><Link href="/collections" className={styles.link}>Visual Collections</Link></li>
+              <li><Link href="/products" className={styles.link}>All Products</Link></li>
+              <li><Link href="/collections" className={styles.link}>Collections</Link></li>
+              <li><Link href="/orders" className={styles.link}>Track Order</Link></li>
             </ul>
           </div>
 
-          {/* C. Logistics & Assist */}
+          {/* C. Legal & Support */}
           <div>
-            <h3 className={styles.colTitle}>Client Assistance</h3>
+            <h3 className={styles.colTitle}>Legal</h3>
             <ul className={styles.linkList}>
-              <li><Link href="/orders" className={styles.link}>Track Package</Link></li>
-              <li><Link href="/contact" className={styles.link}>Concierge Desk</Link></li>
-              <li><a href="#" className={styles.link}>Shipping Protocol</a></li>
-              <li><a href="#" className={styles.link}>Refund Protocol</a></li>
+              <li><Link href="/terms" className={styles.link}>Terms & Conditions</Link></li>
+              <li><Link href="/privacy" className={styles.link}>Privacy Policy</Link></li>
+              <li><Link href="/shipping" className={styles.link}>Shipping Policy</Link></li>
+              <li><Link href="/refund" className={styles.link}>Refund & Cancellation</Link></li>
+              <li><Link href="/contact" className={styles.link}>Contact Us</Link></li>
             </ul>
           </div>
 
           {/* D. Dispatch Grid (Newsletter) */}
           <div className={styles.newsCol}>
-            <h3 className={styles.colTitle}>Aura Transmission</h3>
+            <h3 className={styles.colTitle}>Newsletter</h3>
             <p className={styles.newsDesc}>
-              Subscribe to receive exclusive visual product drops, collection releases, and limited-run asset alerts.
+              Subscribe for exclusive drops and limited release alerts.
             </p>
             
             {subscribed ? (
               <div style={{ padding: "0.75rem", background: "rgba(59, 130, 246, 0.1)", border: "1px solid rgba(59, 130, 246, 0.3)", borderRadius: "8px", color: "#60a5fa", fontSize: "0.85rem", fontWeight: 600 }}>
-                ✓ Transmission Activated. Welcome.
+                ✓ Subscription Active
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className={styles.form}>
@@ -73,7 +78,7 @@ export default function Footer() {
                   type="email" 
                   required 
                   className={styles.input} 
-                  placeholder="yourname@domain.com"
+                  placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -86,14 +91,11 @@ export default function Footer() {
         {/* Bottom Horizontal Band */}
         <div className={styles.bottom}>
           <div className={styles.copyright}>
-            &copy; {new Date().getFullYear()} Aura Frontline Retail Node. All engineering assets protected.
+            &copy; {new Date().getFullYear()} Aura Store. All rights reserved.
           </div>
           
           <div className={styles.payments}>
-            <span className={styles.payIcon} title="Visa Payment Active">💳</span>
-            <span className={styles.payIcon} title="Mastercard Payment Active">🪙</span>
-            <span className={styles.payIcon} title="Bank Wire Active">🏦</span>
-            <span className={styles.payIcon} title="Cash on Delivery Standard">💵</span>
+            <span className={styles.payIcon} title="Razorpay Secure">💳 Secure Checkout via Razorpay</span>
           </div>
         </div>
 
