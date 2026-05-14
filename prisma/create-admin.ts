@@ -4,12 +4,12 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  const adminEmail = "admin@aura.com";
-  const adminPass = "AuraAdmin2026!";
+  const adminEmail = "master@aura.store";
+  const adminPass = "AuraMaster2026!";
   
-  console.log(`🚀 Provisioning Master Admin Credential for: ${adminEmail}`);
+  console.log(`🚀 Provisioning NEW Master Admin Credential for: ${adminEmail}`);
 
-  // Hash the password just like standard auth
+  // Hash the password
   const hashedPassword = await bcrypt.hash(adminPass, 10);
 
   // Upsert or Create the Super Admin
@@ -28,7 +28,7 @@ async function main() {
   });
 
   console.log("\n=========================================");
-  console.log("👑 MASTER ADMIN ACCOUNT SUCCESSFULLY SYNCED");
+  console.log("👑 NEW ADMIN ACCOUNT SUCCESSFULLY SYNCED");
   console.log("=========================================");
   console.log(`📧 Email:    ${adminUser.email}`);
   console.log(`🔑 Password: ${adminPass}`);
