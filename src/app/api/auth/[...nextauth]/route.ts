@@ -1,5 +1,6 @@
 import NextAuth, { NextAuthOptions, DefaultSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 import { prisma } from "../../../../lib/prisma";
 
@@ -23,6 +24,10 @@ declare module "next-auth/jwt" {
 
 export const authOptions: NextAuthOptions = {
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+    }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
@@ -73,8 +78,43 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    async signIn({ user, account }) {
+      if (account?.provider === "google") {
+        if (!user.email) return false;
+        try {
+          const email = user.email.toLowerCase().trim();
+          const existingUser = await prisma.user.findUnique({
+            where: { email },
+          });
+
+          if (!existingUser) {
+            await prisma.user.create({
+              data: {
+                email,
+                name: user.name || "Google User",
+                role: "USER",
+              },
+            });
+            console.log(`✅ GOOGLE AUTH: New user created -> ${email}`);
+          } else {
+            console.log(`✅ GOOGLE AUTH: Existing user signed in -> ${email}`);
+          }
+        } catch (error) {
+          console.error("🔥 GOOGLE AUTH ERROR:", error);
+          return false;
+        }
+      }
+      return true;
+    },
     async jwt({ token, user }) {
-      if (user) {
+      if (token.email) {
+        const dbUser = await prisma.user.findUnique({
+          where: { email: token.email.toLowerCase().trim() },
+        });
+        if (dbUser) {
+          token.role = dbUser.role;
+        }
+      } else if (user) {
         token.role = user.role;
       }
       return token;
