@@ -2,6 +2,8 @@ import { prisma } from "../../lib/prisma";
 import ShopClient from "./ShopClient";
 import styles from "./Shop.module.css";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "The Catalog | AURA.",
   description: "Explore our carefully curated collection of luxury garments and modern silhouettes."

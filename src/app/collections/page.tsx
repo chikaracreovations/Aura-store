@@ -3,6 +3,8 @@ import ProductCard from "../../components/ProductCard";
 import { prisma } from "../../lib/prisma";
 import styles from "./Collections.module.css";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Curated Collections | AURA.",
   description: "Explore our designer edits structured by utility and silhouette classifications."

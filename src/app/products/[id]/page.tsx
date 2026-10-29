@@ -9,6 +9,8 @@ import ProductCard from "../../../components/ProductCard";
 import styles from "./page.module.css";
 import globalStyles from "../../page.module.css";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductPage({ params }: { params: { id: string } }) {
   const { id } = await params;
   const session = await getServerSession(authOptions);
