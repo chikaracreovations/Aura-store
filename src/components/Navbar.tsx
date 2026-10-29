@@ -29,7 +29,27 @@ export default function Navbar() {
         </Link>
         
         {session ? (
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            {session.user?.role === "ADMIN" && (
+              <Link
+                href="/admin"
+                style={{
+                  padding: "0.35rem 0.75rem",
+                  fontSize: "0.8rem",
+                  borderRadius: "6px",
+                  background: "rgba(59, 130, 246, 0.15)",
+                  border: "1px solid var(--accent)",
+                  color: "var(--accent-hover)",
+                  fontWeight: 600,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.3rem",
+                  textDecoration: "none",
+                }}
+              >
+                👑 Admin
+              </Link>
+            )}
             <span style={{ fontSize: '0.85rem', opacity: 0.75, fontWeight: 600 }}>Hi, {session.user?.name?.split(' ')[0]}</span>
             <button 
               onClick={() => signOut()} 
