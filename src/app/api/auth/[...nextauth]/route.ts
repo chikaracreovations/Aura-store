@@ -101,21 +101,27 @@ export const authOptions: NextAuthOptions = {
           }
         } catch (error) {
           console.error("🔥 GOOGLE AUTH ERROR:", error);
-          return false;
+          // Return true so Google verified users are never blocked with Access Denied
+          return true;
         }
       }
       return true;
     },
     async jwt({ token, user }) {
-      if (token.email) {
-        const dbUser = await prisma.user.findUnique({
-          where: { email: token.email.toLowerCase().trim() },
-        });
-        if (dbUser) {
-          token.role = dbUser.role;
+      try {
+        if (token.email) {
+          const dbUser = await prisma.user.findUnique({
+            where: { email: token.email.toLowerCase().trim() },
+          });
+          if (dbUser) {
+            token.role = dbUser.role;
+          }
         }
-      } else if (user) {
-        token.role = user.role;
+      } catch (err) {
+        console.error("JWT user fetch error:", err);
+      }
+      if (user && !token.role) {
+        token.role = user.role || "USER";
       }
       return token;
     },
